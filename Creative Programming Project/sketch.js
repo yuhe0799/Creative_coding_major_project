@@ -27,19 +27,23 @@ function setup() {
   color1 = random(colorselet);
   color2 = random(colorselet);
   plus = 0;
+  push();
   filter1 = new makeFilter();
-  // noLoop();
+  for(let i=0;i<150;i++)
+  {
+	  generateBg();
+  }
+  pop();
 }
 
-function draw() {
-
-  
+function generateBg()
+{
   randomSeed(seed); // Set the random seed
   noiseSeed(seed); // Set the noise seed
 
   noFill();
- push();
- // Loop to draw shapes
+  push();
+  // Loop to draw shapes
   for (let i = 0; i < ranges; i++) 
  {
     strokeWeight(str_wei);
@@ -101,6 +105,11 @@ function draw() {
     drawingContext.setLineDash([1, 1, 1, 1]);
     blendMode(BLEND);
   }
+}
+
+function draw() {
+
+
   strokeWeight(2);
   //Left Branch
   let apple1 = new Apple(294, 330, 27, PI / 2, { ratio: 0.45, c1: color(12, 133, 88), c2: color(175, 67, 67) });
